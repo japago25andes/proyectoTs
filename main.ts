@@ -1,5 +1,6 @@
 import { Aprendiz, NivelEducativo } from "./aprendiz.js";
 
+
 export const ap = new Aprendiz("John Alexander", "Pardo Gonzalez", "avatar.jpg", 33, NivelEducativo.POSGRADO);
 
 let aprendizTable : HTMLElement = document.getElementById("aprendiz")!;
