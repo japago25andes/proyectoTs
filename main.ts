@@ -8,13 +8,13 @@ new Curso ("Principios de arquiectura", 30, 75, true, 2020)]
 
 export const ap = new Aprendiz("John Alexander", "Pardo Gonzalez", "avatar.jpg", 33, NivelEducativo.POSGRADO, cursos);
 
-console.log(ap.cursos);
-
 let aprendizTable : HTMLElement = document.getElementById("aprendiz")!;
 let estadisticasTable : HTMLElement = document.getElementById("estadisticas")!;
+let cursosTable : HTMLElement =document.getElementById("cursos")!;
 
 mostrarDatosPrendiz(ap);
 mostrarEstadisticas(ap);
+mostrarCursosAprendiz(ap);
 
 function mostrarDatosPrendiz(aprendiz: Aprendiz): void {
 
@@ -38,4 +38,20 @@ function mostrarEstadisticas(aprendiz: Aprendiz): void{
 
     estadisticasTable.appendChild(trElement);
 
+}
+
+function mostrarCursosAprendiz(aprendiz: Aprendiz): void{
+    let cursosTbody: HTMLElement = document.createElement("tbody");
+    
+    for(let curso of aprendiz.cursos)
+    {
+        let trElement : HTMLElement = document.createElement("tr");
+        trElement.innerHTML = `<td>${curso.nombre}</td>
+        <td>${curso.horas}</td>
+        <td>${curso.calificacion}</td>
+        <td>${curso.certificado}</td>
+        <td>${curso.anio}</td>`
+        cursosTbody.appendChild(trElement);
+    }
+    cursosTable.appendChild(cursosTbody);
 }
